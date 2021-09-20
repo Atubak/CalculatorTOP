@@ -1,0 +1,51 @@
+body {
+    background-color: hsl(69, 50%, 30%);
+}
+
+h1 {
+    color:hsl(69, 100%, 85%);
+    text-align: center;
+    margin: 70px 0px;
+}
+
+#calc {
+    margin:auto;
+    width: 400px;
+    height: 600px;
+    border-style: solid;
+    border-color: hsl(69, 100%, 15%);
+    background-color: hsl(69, 100%, 85%);
+}
+
+#display {
+    margin: 25px auto;
+    width: 350px;
+    height: 50px;
+    background-color: white;
+    border-style:outset;
+    border-color: hsl(69, 100%, 30%);
+    border-radius: 10px;
+}
+
+#buttonpad {
+    height: 420px;
+    margin: 70px 25px 25px;
+    background-color: hsl(69, 50%, 60%);
+}
+
+#clearButton {    
+    padding: 10px;
+    background-color: hsl(31, 100%, 50%);
+    float:right;
+}
+
+
+#numbers {
+    background-color: red;
+    clear: right;
+}
+
+#operators {
+    background-color: blue;
+    clear: right;
+}
