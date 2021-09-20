@@ -28,24 +28,60 @@ h1 {
 }
 
 #buttonpad {
+    position: relative;
     height: 420px;
     margin: 70px 25px 25px;
     background-color: hsl(69, 50%, 60%);
 }
 
 #clearButton {    
+    position: absolute;
+    right: 0px;
+    top: 0px;
     padding: 10px;
     background-color: hsl(31, 100%, 50%);
-    float:right;
 }
 
 
 #numbers {
+    position: absolute;
+    right: 100px;
+    top: 0px;
+    bottom: 0px;
     background-color: red;
-    clear: right;
+}
+
+.number {
+    margin: 10px auto;
+    width: 68px;
+    height: 60px;
+    font-size: 20px;
+    align-items: center;
+
 }
 
 #operators {
+    position: absolute;
+    left: 282px;
+    top: 50px;
+    bottom: 39px ;
+    display: grid;
     background-color: blue;
     clear: right;
+}
+
+.operator {
+    display: block;
+    margin: 10px auto;
+    width: 68px;
+    height: 60px;
+    font-size: 30px;
+}
+
+#equalButton {
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px 28px;
+
 }
