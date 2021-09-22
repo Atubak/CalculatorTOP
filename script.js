@@ -6,17 +6,17 @@ let secondNumber = 0;
 
 
 window.addEventListener('click', function(e) { //populates the display
-
+    
     let input = document.querySelector(`button[id="${e.target.id}"]`);
     
     if (display.textContent.length > 15) return;
-
+    
     if (!input) return;
     
     if (input.id === 'clearButton') return clearCalculator();
     
     if (input.id === 'equalButton') return; 
-
+    
     display.textContent += input.textContent;
     
     displayValue = display.textContent;
@@ -25,6 +25,7 @@ window.addEventListener('click', function(e) { //populates the display
 
 
 function clearCalculator() {
+    if (display.textContent === '80085') return link();
     display.textContent = "";
 };
 
@@ -36,35 +37,37 @@ let operatorSign = "";
 let bothNumbers = "";
 
 window.addEventListener('click', function(e) { //asigns the inputted values to the corresponding variables
-
+    
     let input = document.querySelector(`button[id="${e.target.id}"]`);
-
+    
     if (input.className === 'operator') {
         calculate();
         selectedOperator = input.id;
-
+        
         operatorSign = input.textContent;
-
+        
     };
-
+    
     if (input.id === 'equalButton') {
         calculate();
-        console.log(display.textContent);
+        
         display.textContent = display.textContent.slice(0, -1);
     };
 });
 
+function link() {
+    window.open('https://www.youtube.com/watch?v=KwhyxW8llro', '_blank')
+};
+
 function calculate() {
-bothNumbers = displayValue.split(`${operatorSign}`);
-
-console.log(bothNumbers);
-console.log(operatorSign);
-firstNumber = bothNumbers[0];
-secondNumber = bothNumbers[1];
-
-
-return operate();
-
+    bothNumbers = displayValue.split(`${operatorSign}`);
+    
+    console.log(bothNumbers);
+    console.log(operatorSign);
+    firstNumber = bothNumbers[0];
+    secondNumber = bothNumbers[1];
+    
+    return operate();
 };
 
 
@@ -75,7 +78,7 @@ function add(a, b) {
     answer = a + b;
     console.log(answer);
     display.textContent = answer + operatorSign;
-
+    
 };
 
 function subtract(a, b) {
