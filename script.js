@@ -15,7 +15,7 @@ window.addEventListener('click', function(e) { //populates the display
     
     if (input.id === 'clearButton') return clearCalculator();
     
-    if (input.id === 'equalButton') return; //return whatever will be the function that calculates stuff
+    if (input.id === 'equalButton') return; 
 
     display.textContent += input.textContent;
     
@@ -33,12 +33,14 @@ function clearCalculator() {
 
 
 let operatorSign = "";
+let bothNumbers = "";
 
 window.addEventListener('click', function(e) { //asigns the inputted values to the corresponding variables
 
     let input = document.querySelector(`button[id="${e.target.id}"]`);
 
     if (input.className === 'operator') {
+        calculate();
         selectedOperator = input.id;
 
         operatorSign = input.textContent;
@@ -46,16 +48,25 @@ window.addEventListener('click', function(e) { //asigns the inputted values to t
     };
 
     if (input.id === 'equalButton') {
-        bothNumbers = displayValue.split(`${operatorSign}`);
-
-
-        firstNumber = bothNumbers[0];
-        secondNumber = bothNumbers[1];
-
-        
-        return operate();
+        calculate();
+        console.log(display.textContent);
+        display.textContent = display.textContent.slice(0, -1);
     };
 });
+
+function calculate() {
+bothNumbers = displayValue.split(`${operatorSign}`);
+
+console.log(bothNumbers);
+console.log(operatorSign);
+firstNumber = bothNumbers[0];
+secondNumber = bothNumbers[1];
+
+
+return operate();
+
+};
+
 
 
 let answer = "";
@@ -63,37 +74,39 @@ let answer = "";
 function add(a, b) {
     answer = a + b;
     console.log(answer);
-    return display.textContent = answer;
+    display.textContent = answer + operatorSign;
+
 };
 
 function subtract(a, b) {
     answer = a - b;
     console.log(answer);
-    return display.textContent = answer;
+    display.textContent = answer + operatorSign;
 };
 
 function multiply(a, b) {
     answer = a * b;
     console.log(answer);
-    return display.textContent = answer;
+    display.textContent = answer + operatorSign;
 };
 
 function divide(a, b) {
     answer = a / b;
     console.log(answer);
-    return display.textContent = answer;
+    display.textContent = answer + operatorSign;
 };
 
 
 
 function operate() {
     
-    console.log(selectedOperator);
     console.log(firstNumber);
     console.log(secondNumber);
 
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
+
+    if (Number.isNaN(firstNumber) || Number.isNaN(secondNumber)) return; 
 
     if (selectedOperator === 'add') return add(firstNumber, secondNumber);
     if (selectedOperator === 'subtract') return subtract(firstNumber, secondNumber);

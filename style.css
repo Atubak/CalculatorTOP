@@ -58,6 +58,7 @@ button:active {
     height: 420px;
     margin: 45px 25px 20px;
     background-color: hsl(69, 50%, 60%);
+    border-radius: 10px;
 }
 
 #clearButton {    
